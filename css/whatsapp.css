@@ -1,0 +1,67 @@
+/* ================================
+   WHATSAPP FLUTUANTE
+================================ */
+
+.whatsapp-flutuante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 13px 18px;
+
+    color: #ffffff;
+    background-color: #159447;
+
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+
+    transition:
+        background-color 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.whatsapp-flutuante:hover {
+    background-color: #117c3c;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.34);
+}
+
+.whatsapp-flutuante svg {
+    width: 27px;
+    height: 27px;
+
+    flex-shrink: 0;
+}
+
+
+/* Pequena animação ao carregar */
+@keyframes aparecerWhatsapp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.whatsapp-flutuante {
+    animation:
+        aparecerWhatsapp 0.6s ease 0.8s both;
+}

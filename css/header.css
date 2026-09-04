@@ -1,0 +1,329 @@
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.header {
+    position: relative;
+    z-index: 900;
+
+    width: 100%;
+
+    background-color: #fffdf9;
+    border-bottom: 1px solid #e5e1d8;
+}
+
+
+/* =========================================
+   CONTEÚDO DO CABEÇALHO
+========================================= */
+
+.header-container {
+    width: 92%;
+    max-width: 1500px;
+    min-height: 96px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(240px, 1fr)
+        auto
+        minmax(240px, 1fr);
+
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    justify-self: start;
+
+    flex-shrink: 0;
+}
+
+.logo-imagem {
+    width: 270px;
+    height: 72px;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* =========================================
+   MENU DE NAVEGAÇÃO
+========================================= */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+}
+
+.menu a {
+    position: relative;
+
+    color: #102b2d;
+
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.menu a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #c6a05a;
+
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   BOTÃO DO WHATSAPP
+========================================= */
+
+.botao-whatsapp {
+    justify-self: end;
+
+    padding: 14px 20px;
+
+    color: #ffffff;
+    background-color: #0f4946;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.botao-whatsapp:hover {
+    background-color: #0a3735;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   BOTÃO DO MENU MOBILE
+========================================= */
+
+.botao-menu {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background-color: transparent;
+
+    border: 1px solid #dcd8cf;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.botao-menu span {
+    width: 21px;
+    height: 2px;
+
+    display: block;
+
+    background-color: #102b2d;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* WhatsApp interno oculto no computador */
+
+.menu .menu-whatsapp {
+    display: none;
+}
+
+
+/* =========================================
+   TABLETS E TELAS MENORES
+========================================= */
+
+@media (max-width: 1100px) {
+    .header-container {
+        grid-template-columns:
+            minmax(200px, 1fr)
+            auto
+            minmax(200px, 1fr);
+    }
+
+    .logo-imagem {
+        width: 230px;
+        height: 65px;
+    }
+
+    .menu {
+        gap: 22px;
+    }
+
+    .botao-whatsapp {
+        padding: 13px 16px;
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   MENU MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+    .header-container {
+        min-height: 78px;
+
+        grid-template-columns: 1fr auto;
+    }
+
+    .logo-imagem {
+        width: 220px;
+        height: 60px;
+    }
+
+    .botao-menu {
+        display: flex;
+        justify-self: end;
+    }
+
+    .botao-whatsapp {
+        display: none;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+        padding: 12px 4% 20px;
+
+        background-color: #fffdf9;
+        border-top: 1px solid #e5e1d8;
+        border-bottom: 1px solid #e5e1d8;
+
+        box-shadow:
+            0 14px 30px rgba(16, 43, 45, 0.12);
+    }
+
+    /*
+        Funciona caso o menu.js utilize
+        a classe "aberto" ou "ativo".
+    */
+    .menu.aberto,
+    .menu.ativo {
+        display: flex;
+    }
+
+    .menu a {
+        width: 100%;
+
+        padding: 14px 10px;
+
+        text-align: center;
+    }
+
+    .menu a::after {
+        display: none;
+    }
+
+    .menu .menu-whatsapp {
+        display: block;
+
+        margin-top: 10px;
+        padding: 15px;
+
+        color: #ffffff;
+        background-color: #0f4946;
+
+        border-radius: 4px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================
+   ANIMAÇÃO DO BOTÃO MOBILE
+========================================= */
+
+.botao-menu.ativo span:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+.botao-menu.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-menu.ativo span:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+/* =========================================
+   CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 480px) {
+    .header-container {
+        width: 94%;
+        min-height: 72px;
+    }
+
+    .logo-imagem {
+        width: 185px;
+        height: 52px;
+    }
+
+    .botao-menu {
+        width: 40px;
+        height: 40px;
+    }
+}

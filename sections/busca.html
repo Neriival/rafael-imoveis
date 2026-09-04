@@ -1,0 +1,138 @@
+<!-- ================================
+     BUSCA DE IMÓVEIS
+================================ -->
+
+<section class="area-busca">
+
+    <!-- Comprar ou alugar -->
+    <div class="tipo-negocio">
+
+        <button
+            class="botao-negocio ativo"
+            data-negocio="comprar"
+        >
+            Comprar
+        </button>
+
+        <button
+            class="botao-negocio"
+            data-negocio="alugar"
+        >
+            Alugar
+        </button>
+
+    </div>
+
+    <!-- Tipo do imóvel -->
+    <div class="campo-busca">
+
+        <label for="tipo-imovel">
+            Tipo do imóvel
+        </label>
+
+        <select id="tipo-imovel">
+
+            <option value="todos">
+                Todos os imóveis
+            </option>
+
+            <option value="apartamento">
+                Apartamento
+            </option>
+
+            <option value="casa">
+                Casa
+            </option>
+
+            <option value="sobrado">
+                Sobrado
+            </option>
+
+            <option value="terreno">
+                Terreno
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- Localização -->
+    <div class="campo-busca">
+
+        <label for="localizacao">
+            Localização
+        </label>
+
+        <select id="localizacao">
+
+            <option value="todas">
+                Toda Praia Grande
+            </option>
+
+            <option value="canto-do-forte">
+                Canto do Forte
+            </option>
+
+            <option value="boqueirao">
+                Boqueirão
+            </option>
+
+            <option value="guilhermina">
+                Guilhermina
+            </option>
+
+            <option value="caicara">
+                Vila Caiçara
+            </option>
+
+            <option value="tupi">
+                Vila Tupi
+            </option>
+
+             <option value="samambaia">
+                Samambaia
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- Quantidade de quartos -->
+    <div class="campo-busca">
+
+        <label for="quartos">
+            Quartos
+        </label>
+
+        <select id="quartos">
+
+            <option value="todos">
+                Qualquer quantidade
+            </option>
+
+            <option value="1">
+                1 quarto
+            </option>
+
+            <option value="2">
+                2 quartos
+            </option>
+
+            <option value="3">
+                3 quartos
+            </option>
+
+            <option value="4">
+                4 quartos ou mais
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- Botão de pesquisa -->
+    <button class="botao-buscar" id="botao-buscar">
+        Buscar imóveis
+    </button>
+
+</section>

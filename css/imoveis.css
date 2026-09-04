@@ -1,0 +1,278 @@
+/* ================================
+   SEÇÃO DE IMÓVEIS
+================================ */
+
+.secao-imoveis {
+    width: 90%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+    padding: 110px 0 90px;
+}
+
+
+/* ================================
+   TÍTULO DA SEÇÃO
+================================ */
+
+.titulo-secao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+.titulo-secao span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #b98b3d;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo-secao h2 {
+    color: #102b2d;
+
+    font-family: Georgia, serif;
+    font-size: 45px;
+    font-weight: normal;
+}
+
+.ver-todos {
+    padding: 8px 0;
+
+    color: #102b2d;
+    background-color: transparent;
+
+    border: none;
+    border-bottom: 1px solid #c6a05a;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   LISTA DE IMÓVEIS
+================================ */
+
+.lista-imoveis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* ================================
+   CARD DO IMÓVEL
+================================ */
+
+.card-imovel {
+    background-color: #ffffff;
+
+    border: 1px solid #e4e0d8;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.card-imovel:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 20px 45px rgba(15, 73, 70, 0.14);
+}
+
+
+/* Foto do imóvel */
+.card-imagem {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    background-color: #102b2d;
+
+    overflow: hidden;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-imovel:hover .card-imagem img {
+    transform: scale(1.05);
+}
+
+
+/* Etiquetas */
+.etiqueta-imovel {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    padding: 8px 12px;
+
+    color: #102b2d;
+    background-color: #c6a05a;
+
+    border-radius: 3px;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.tipo-imovel-card {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    padding: 8px 12px;
+
+    color: #ffffff;
+    background-color: rgba(15, 73, 70, 0.9);
+
+    border-radius: 3px;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+/* Conteúdo do card */
+.card-conteudo {
+    padding: 22px;
+}
+
+.card-localizacao {
+    margin-bottom: 12px;
+
+    color: #657273;
+
+    font-size: 13px;
+}
+
+.card-conteudoteudo h3 {
+    min-height: 52px;
+
+    color: #102b2d;
+
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+
+/* Características */
+.card-caracteristicas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    margin-top: 18px;
+    padding: 16px 0;
+
+    color: #657273;
+
+    border-top: 1px solid #ebe7df;
+    border-bottom: 1px solid #ebe7df;
+
+    font-size: 13px;
+}
+
+
+/* Preço */
+.card-preco {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 18px;
+}
+
+.card-preco strong {
+    color: #17615c;
+
+    font-size: 22px;
+}
+
+.card-preco button {
+    width: 40px;
+    height: 40px;
+
+    color: #ffffff;
+    background-color: #0f4946;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+/* ================================
+   NENHUM IMÓVEL ENCONTRADO
+================================ */
+
+.nenhum-imovel {
+    grid-column: 1 / -1;
+
+    padding: 60px 25px;
+
+    background-color: #f3efe7;
+
+    border: 1px solid #e4e0d8;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.nenhum-imovel h3 {
+    color: #102b2d;
+
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.nenhum-imovel p {
+    margin-top: 10px;
+
+    color: #657273;
+
+    font-size: 15px;
+}
+
+/* Quantidade de imóveis encontrados */
+.quantidade-imoveis {
+    margin-top: 12px;
+
+    color: #657273;
+
+    font-size: 14px;
+}

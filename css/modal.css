@@ -1,0 +1,590 @@
+/* =========================================
+   FUNDO DO MODAL
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: rgba(4, 25, 24, 0.78);
+    backdrop-filter: blur(7px);
+}
+
+.modal-overlay.aberto {
+    display: flex;
+}
+
+
+/* =========================================
+   FICHA DO IMÓVEL
+========================================= */
+
+.modal-imovel {
+    position: relative;
+
+    width: 100%;
+    max-width: 1150px;
+    max-height: 92vh;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================
+   BOTÃO FECHAR
+========================================= */
+
+.modal-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+
+    width: 42px;
+    height: 42px;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
+    color: #102b2d;
+    background-color: #ffffff;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.2);
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.modal-fechar:hover {
+    color: #ffffff;
+    background-color: #0f4946;
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   GALERIA DE FOTOGRAFIAS
+========================================= */
+
+.modal-galeria {
+    padding: 15px;
+
+    background-color: #102b2d;
+    border-radius: 8px 0 0 8px;
+}
+
+
+/* =========================================
+   IMAGEM PRINCIPAL
+========================================= */
+
+.modal-imagem-principal {
+    position: relative;
+
+    width: 100%;
+
+    /* Mantém todas as imagens no mesmo formato */
+    aspect-ratio: 16 / 9;
+
+    background-color: #102b2d;
+
+    border: 1px solid
+        rgba(198, 160, 90, 0.35);
+
+    overflow: hidden;
+}
+
+.modal-imagem-principal > img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   SETAS DA GALERIA
+========================================= */
+
+.seta-foto {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    width: 46px;
+    height: 46px;
+    padding: 0;
+
+    color: #102b2d;
+    background-color:
+        rgba(255, 255, 255, 0.92);
+
+    border: none;
+    border-radius: 50%;
+
+    /* Esconde o símbolo escrito no HTML */
+    font-size: 0;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.18);
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Desenho da seta */
+
+.seta-foto::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+
+    transform-origin: center;
+}
+
+
+/* Seta esquerda */
+
+.seta-anterior {
+    left: 15px;
+}
+
+.seta-anterior::before {
+    transform:
+        translate(-50%, -50%)
+        rotate(135deg);
+}
+
+
+/* Seta direita */
+
+.seta-proxima {
+    right: 15px;
+}
+
+.seta-proxima::before {
+    transform:
+        translate(-50%, -50%)
+        rotate(-45deg);
+}
+
+
+/* Efeito ao passar o mouse */
+
+.seta-foto:hover {
+    color: #ffffff;
+    background-color: #0f4946;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* Acessibilidade pelo teclado */
+
+.seta-foto:focus-visible {
+    outline: 3px solid #c6a05a;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   CONTADOR DE FOTOGRAFIAS
+========================================= */
+
+.contador-fotos {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    z-index: 4;
+
+    padding: 7px 11px;
+
+    color: #ffffff;
+    background-color:
+        rgba(4, 25, 24, 0.8);
+
+    border-radius: 3px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   MINIATURAS
+========================================= */
+
+.modal-miniaturas {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.modal-miniatura {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    padding: 0;
+
+    background-color: #071f1e;
+
+    border: 2px solid transparent;
+    border-radius: 3px;
+
+    opacity: 0.55;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.modal-miniatura img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal-miniatura:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.modal-miniatura.ativa {
+    border-color: #c6a05a;
+    opacity: 1;
+}
+
+
+/* =========================================
+   INFORMAÇÕES DO IMÓVEL
+========================================= */
+
+.modal-informacoes {
+    display: flex;
+    flex-direction: column;
+
+    padding: 55px 35px 30px;
+
+    overflow-y: auto;
+}
+
+.modal-tipo {
+    color: #b98b3d;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.modal-informacoes h2 {
+    margin-top: 15px;
+
+    color: #102b2d;
+
+    font-family: Georgia, serif;
+    font-size: 35px;
+    font-weight: normal;
+    line-height: 1.1;
+}
+
+.modal-localizacao {
+    margin-top: 15px;
+
+    color: #657273;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CARACTERÍSTICAS DO IMÓVEL
+========================================= */
+
+.modal-caracteristicas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin: 28px 0;
+    padding: 22px 0;
+
+    color: #536264;
+
+    border-top: 1px solid #dcd8cf;
+    border-bottom: 1px solid #dcd8cf;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DESCRIÇÃO
+========================================= */
+
+.modal-descricao {
+    color: #536264;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   VALOR DO IMÓVEL
+========================================= */
+
+.modal-valor {
+    margin-top: auto;
+    padding-top: 25px;
+}
+
+.modal-valor small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #657273;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.modal-valor strong {
+    color: #17615c;
+    font-size: 28px;
+}
+
+
+/* =========================================
+   BOTÃO DO WHATSAPP
+========================================= */
+
+.modal-whatsapp {
+    display: block;
+
+    margin-top: 20px;
+    padding: 17px;
+
+    color: #ffffff;
+    background-color: #0f4946;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.modal-whatsapp:hover {
+    background-color: #0a3735;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .modal-overlay {
+        align-items: flex-start;
+
+        padding: 15px;
+
+        overflow-y: auto;
+    }
+
+    .modal-imovel {
+        max-width: 720px;
+        max-height: none;
+
+        grid-template-columns: 1fr;
+    }
+
+    .modal-galeria {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .modal-informacoes {
+        padding: 50px 30px 30px;
+
+        overflow-y: visible;
+    }
+
+    .modal-informacoes h2 {
+        font-size: 31px;
+    }
+
+    .modal-valor {
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE — CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+    .modal-overlay {
+        padding: 8px;
+    }
+
+    .modal-imovel {
+        border-radius: 7px;
+    }
+
+    .modal-galeria {
+        padding: 8px;
+    }
+
+    .modal-imagem-principal {
+        aspect-ratio: 16 / 10;
+    }
+
+    .seta-foto {
+        width: 40px;
+        height: 40px;
+
+        font-size: 24px;
+    }
+
+    .seta-anterior {
+        left: 8px;
+    }
+
+    .seta-proxima {
+        right: 8px;
+    }
+
+    .contador-fotos {
+        right: 8px;
+        bottom: 8px;
+
+        padding: 5px 8px;
+    }
+
+    .modal-miniaturas {
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .modal-fechar {
+        top: 12px;
+        right: 12px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 25px;
+    }
+
+    .modal-informacoes {
+        padding: 50px 20px 25px;
+    }
+
+    .modal-informacoes h2 {
+        padding-right: 25px;
+        font-size: 27px;
+    }
+
+    .modal-caracteristicas {
+        gap: 12px;
+
+        margin: 22px 0;
+        padding: 18px 0;
+
+        font-size: 13px;
+    }
+
+    .modal-descricao {
+        font-size: 14px;
+    }
+
+    .modal-valor strong {
+        font-size: 24px;
+    }
+}
+
+
+/* =========================================
+   CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 400px) {
+    .modal-caracteristicas {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-miniaturas {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}

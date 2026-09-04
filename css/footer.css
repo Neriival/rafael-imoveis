@@ -1,0 +1,116 @@
+/* ================================
+   RODAPÉ
+================================ */
+
+.footer {
+    padding: 70px 7% 25px;
+
+    color: #ffffff;
+    background-color: #0a302f;
+}
+
+.footer-conteudo {
+    max-width: 1300px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 70px;
+
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+
+/* Marca */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+
+    width: max-content;
+}
+
+.footer-logo span {
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.footer-logo strong {
+    margin-top: 4px;
+
+    color: #c6a05a;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+}
+
+.footer-marca p {
+    max-width: 350px;
+
+    margin-top: 22px;
+
+    color: #b8c6c5;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-creci {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #e2c681;
+
+    font-size: 13px;
+}
+
+
+/* Links */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.footer-links h3 {
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.footer-links a,
+.footer-links span {
+    color: #b8c6c5;
+
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #e2c681;
+}
+
+
+/* Parte inferior */
+.footer-final {
+    max-width: 1300px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin: 0 auto;
+    padding-top: 25px;
+
+    color: #8fa3a1;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    font-size: 12px;
+}
